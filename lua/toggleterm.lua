@@ -244,7 +244,7 @@ function M.send_lines_to_terminal(selection_type, trim_spaces, cmd_data)
   if not lines or not next(lines) then return end
 
   if not trim_spaces then
-    M.exec(table.concat(lines, "\n"), id)
+    M.exec(table.concat(lines, "\r\n"), id)
   else
     for _, line in ipairs(lines) do
       local l = trim_spaces and line:gsub("^%s+", ""):gsub("%s+$", "") or line
